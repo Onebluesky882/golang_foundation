@@ -1,3 +1,3 @@
-module github.com/weight
+module weight
 
 go 1.21.4

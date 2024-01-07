@@ -89,11 +89,17 @@ Logical operators เรียงจากลำดับความสำค�
 
 ### control flow switch case
 
-beark
-continue
+switch (condition) {
+case 1 :
+case 2 :
+}
 
 ### for loop
 
 // for initialization; condition ; post{
-    body
+body
+}
+
+//for (condition) {
+body
 }

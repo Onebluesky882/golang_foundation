@@ -1,11 +1,14 @@
 package main
 
-import ()
+import (
+	"fmt"
+	"weight"
+)
 
 func main() {
 
-	// k := weight.KG(1.5)
+	k := weight.KG(1.5)
 
-	// fmt.Println(weight.KgtoLB(k))
+	fmt.Println(weight.KgtoLB(k))
 
 }
