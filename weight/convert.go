@@ -1,4 +1,4 @@
-package weight
+package  weight
 
 func KgtoLB(n KG) LB {
 	return LB(n * kgtoLbRaio)
