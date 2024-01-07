@@ -79,3 +79,21 @@ return LB(kg / 0.453592)
 func (kg KG) toString() ST {
 return ST(strconv.Itoa(int(kg)) + " kg")
 }
+
+### if else
+
+Logical operators เรียงจากลำดับความสำคัญใหญ่ลงเล็ก
+&&
+||
+!
+
+### control flow switch case
+
+beark
+continue
+
+### for loop
+
+// for initialization; condition ; post{
+    body
+}
