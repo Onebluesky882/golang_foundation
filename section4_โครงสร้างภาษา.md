@@ -7,22 +7,22 @@
 
 ## pointer
 
-declear var p \*int
+declear var p int
 
 p = 40
 fmt.Println(&p) for watch address
-fmt.Println(\*p) for watch value
+fmt.Println(p) for watch value
 
 ## func return pointer
 
-func fb() \*int {
+func fb() int {
 x := 4
 return &x
 }
 
 func main() {
 c := fb()
-fmt.Println(\*c)
+fmt.Println(c)
 }
 
 ## function receive pointer คอนเซป ของ alias
