@@ -4,8 +4,17 @@ import (
 	"fmt"
 )
 
+type Peice int
+
 func main() {
-
-	fmt.Println("hello")
-
+	const (
+		Sunday = iota + 1 // constant generator
+		Monday
+		Tuesday
+		Wednesday
+		Thursday
+		Friday
+		Saturday
+	)
+	fmt.Println(Sunday, Monday, Tuesday)
 }

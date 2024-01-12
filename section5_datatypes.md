@@ -134,3 +134,88 @@ fmt.Printf(`0x`+"%x,", xx[i])
 // slice rune to string
 xxx := []rune{0xe27, 0xe23, 0xe23, 0xe13, 0xe2a, 0xe34, 0xe07, 0xe2b, 0xe4c}
 fmt.Println(string(xxx))
+
+### Work with string
+
+    x := "ติดสอบ"
+
+xx := len(x)
+fmt.Println(xx)
+
+for index, value := range x {
+// fmt.Println(string(value))
+fmt.Printf("%d %c\n", index, value)
+
+}
+
+#### utf-8
+
+countUtf := utf8.RuneCountInString(x)
+fmt.Println("count string :", countUtf)
+
+#### utf-8 decode rune
+
+for i := 0; i < len(x); {
+rune, size := utf8.DecodeRuneInString(x[i:])
+i = i + size
+fmt.Printf("%c-", rune)
+}
+fmt.Println()
+
+#### ความแตกต่าง bytes package and strings package
+
+//bytes package
+fider := "สอ"
+fmt.Println(bytes.Count([]byte(x), []byte(fider)))
+// strings package
+fmt.Println(strings.Count(x, fider))
+
+### String buffer builder
+
+// bytes buffer builder
+buff := bytes.Buffer{}
+buff.WriteRune('y')
+buff.WriteRune('o')
+fmt.Println(buff.String())
+
+// string buffer builder
+stringBuff := strings.Builder{}
+stringBuff.WriteRune('h')
+stringBuff.WriteRune('e')
+fmt.Println(stringBuff.String())
+
+### string convert
+
+import package : strconv
+
+//ascii to integer
+atoi, \_ := strconv.Atoi("123")
+fmt.Println(atoi, reflect.TypeOf(atoi))
+
+// integer to acsii
+itoA := strconv.Itoa(1234)
+fmt.Println(itoA, reflect.TypeOf(itoA))
+
+// string to float64
+flost, \_ := strconv.ParseFloat("12.4", 64)
+fmt.Println(flost, reflect.TypeOf(flost))
+
+// string to boolean
+convertBool, \_ := strconv.ParseBool("t")
+fmt.Println(convertBool)
+
+### unicode packages
+
+fmt.Println("digit? :", unicode.IsDigit('1'))
+fmt.Println("number? :", unicode.IsNumber(1))
+fmt.Println("IsUpper? :", unicode.IsUpper('A'))
+fmt.Println("IsLower? :", unicode.IsLower('a'))
+
+## constants
+
+- compiler knows it values
+- Evaluation at compile time
+  การประกาศตัวแปรรูปแบบ const ระบบจะทำการ Evaluation at times
+- Declare constants as a group
+- lota
+- Untyped constants
