@@ -84,3 +84,53 @@ fmt.Println(rune(yc[1])) // เลขฐาน 10
 fmt.Printf("%q \n", yc[0]) // แสดงตัวอักษรใน display
 
 ### integer to string 6 cases
+
+#### case 1 integer to string
+
+ex1 := string(rune(0x265e))
+fmt.Println(ex1)
+for i := 0; i < len(ex1); i++ {
+fmt.Printf(`\x`+"%x", ex1[i])
+}
+
+fmt.Println("\xe2\x99\x9e")
+
+#### case 2 []byte{} to string
+
+ex2 := []byte{0xe2, 0x99, 0x9e}
+fmt.Println(string(ex2))
+
+#### case 3 []rune to string
+
+s := "สวัสดี"
+// extract rune
+ss := []rune(s)
+for i := 0; i < len(ss); i++ {
+fmt.Printf("0x%x,", ss[i])
+}
+
+// []rune to string
+sss := []rune{0xe2a, 0xe27, 0xe31, 0xe2a, 0xe14, 0xe35}
+fmt.Println(string(sss))
+
+#### case4 slice of byte to string
+
+s := "สวัสดี"
+ss := []byte(s)
+for i := 0; i < len(ss); i++ {
+fmt.Printf(`\x`+"%x", ss[i])
+}
+fmt.Println()
+fmt.Println(string("\xe0\xb8\xaa\xe0\xb8\xa7\xe0\xb8\xb1\xe0\xb8\xaa\xe0\xb8\x94\xe0\xb8\xb5"))
+
+#### case 5 string to slice of rune
+
+x := "วรรณสิงห์"
+xx := []rune(x)
+
+for i := 0; i < len(xx); i++ {
+fmt.Printf(`0x`+"%x,", xx[i])
+}
+// slice rune to string
+xxx := []rune{0xe27, 0xe23, 0xe23, 0xe13, 0xe2a, 0xe34, 0xe07, 0xe2b, 0xe4c}
+fmt.Println(string(xxx))
