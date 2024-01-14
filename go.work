@@ -3,6 +3,7 @@ go 1.21.4
 use (
 	./hr
 	./integers
+	./jsondemo
 	./src
 	./weight
 )
