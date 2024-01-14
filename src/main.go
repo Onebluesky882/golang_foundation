@@ -1,17 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-//Type struct
-type Person struct {
-	name string
-	age  int
+type BinaryTree struct {
+	value int
+	left  *BinaryTree
+	right *BinaryTree
 }
 
 func main() {
-	// แบบที่ 1
-	staff := Person{name: "wansing", age: 20}
+	root := BinaryTree{value: 2}
+	left := BinaryTree{value: 1}
+	right := BinaryTree{value: 3}
 
-	fmt.Println(staff)
+	root.left = &left
+	root.right = &right
+
+	showDF(&root)
+}
+
+func showDF(node *BinaryTree) {
+
+	if node != nil {
+		showDF(node.left)
+		fmt.Println(node.value)
+		showDF(node.right)
+	}
 
 }
