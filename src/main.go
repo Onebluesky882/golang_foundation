@@ -1,52 +1,20 @@
 package main
 
 import (
-	"fmt"
-	"sort"
+	"log"
+	"net/http"
+	"os"
 )
 
-type Person struct {
-	name string
-	age  int
-}
+type myHandler func()
 
-type customeSort struct {
-	Persons []*Person
-	less    func(i, j *Person) bool
-}
-
-func (p customeSort) Len() int {
-	return len(p.Persons)
-}
-
-func (p customeSort) Less(i, j int) bool {
-	return p.less(p.Persons[i], p.Persons[j])
-}
-
-func (p customeSort) Swap(i, j int) {
-	p.Persons[i], p.Persons[j] = p.Persons[j], p.Persons[i]
+func (m myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusAccepted)
+	w.Write([]byte("hello tob"))
 }
 
 func main() {
-	p := []*Person{
-		{"a", 22}, {"b", 19}, {"c", 20}, {"d", 18}, {"e", 20}, {"aa", 20},
-	}
-	printPerson(p)
-	sort.Sort(customeSort{Persons: p, less: func(i, j *Person) bool {
-		if i.name != j.name {
-			return i.name < j.name
-		}
-		if i.age != j.age {
-			return i.age < j.age
-		}
-		return false
-	}})
-	fmt.Println("...........................")
-	printPerson(p)
-}
-
-func printPerson(p []*Person) {
-	for _, v := range p {
-		fmt.Println(*v)
-	}
+	log.SetFlags(0)
+	log.Println(os.Getpid())
+	http.ListenAndServe(":8080", myHandler(func() {}))
 }
