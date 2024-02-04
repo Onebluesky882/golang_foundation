@@ -5,5 +5,7 @@ use (
 	./integers
 	./jsondemo
 	./src
+	./src/client
+	./src/server
 	./weight
 )
