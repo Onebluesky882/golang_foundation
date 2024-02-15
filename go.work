@@ -4,6 +4,7 @@ use (
 	./hr
 	./integers
 	./jsondemo
+	./section13_channel/04_project_baseline
 	./src
 	./src/client
 	./src/gochannal
