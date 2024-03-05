@@ -3,6 +3,7 @@
 -ข้อควรรู้ port protocal มันจะซ้ำกันไม่ได้
 
 ## check the port on mac
+
 คำสั่งหา port
 nc -l 8080 &
 
